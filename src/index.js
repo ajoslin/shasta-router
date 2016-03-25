@@ -1,6 +1,7 @@
 import { routeActions, syncHistory, routeReducer } from 'react-router-redux'
 import {
   browserHistory,
+  hashHistory,
   Router,
   Route,
   Link,
@@ -22,7 +23,7 @@ const builtins = {
   IndexRedirect
 }
 
-const middleware = syncHistory(browserHistory)
+const middleware = syncHistory(window.cordova ? hashHistory : browserHistory)
 const getRouterState = (state) => state.get(moduleName).location
 
 export default {
