@@ -1,5 +1,9 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _defineProperty2 = require('babel-runtime/helpers/defineProperty');
 
 var _defineProperty3 = _interopRequireDefault(_defineProperty2);
@@ -7,10 +11,6 @@ var _defineProperty3 = _interopRequireDefault(_defineProperty2);
 var _extends2 = require('babel-runtime/helpers/extends');
 
 var _extends3 = _interopRequireDefault(_extends2);
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 
 var _reactRouterRedux = require('react-router-redux');
 
@@ -30,7 +30,7 @@ var builtins = {
   IndexRedirect: _reactRouter.IndexRedirect
 };
 
-var middleware = (0, _reactRouterRedux.syncHistory)(_reactRouter.browserHistory);
+var middleware = (0, _reactRouterRedux.syncHistory)(window.cordova ? _reactRouter.hashHistory : _reactRouter.browserHistory);
 var getRouterState = function getRouterState(state) {
   return state.get(moduleName).location;
 };
